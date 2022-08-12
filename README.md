@@ -1,3 +1,8 @@
+# A Hybrid Bandwidth Prediction for RTC Systems
+
+ Code for paper titled: "BoB: Bandwidth Prediction for Real-Time Communications Using Heuristic and Reinforcement Learning" as submitted to IEEE TMM.
+
+
 # Challenge-Example
 
 This repository is an example about the submission of challenge https://2021.acmmmsys.org/rtc_challenge.php. Its zip package(https://github.com/OpenNetLab/Challenge-Example/archive/refs/heads/master.zip) can be directly uploaded as a bandwidth estimator to [OpenNetLab](https://opennetlab.org/) platform for this challenge.

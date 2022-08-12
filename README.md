@@ -1,6 +1,6 @@
-# A Hybrid Bandwidth Prediction for RTC Systems
+# A Hybrid Bandwidth Prediction for RTC Systems (Cite this Paper)
 
- Code for paper titled: "BoB: Bandwidth Prediction for Real-Time Communications Using Heuristic and Reinforcement Learning" as submitted to IEEE TMM.
+ Code for paper titled: "BoB: Bandwidth Prediction for Real-Time Communications Using Heuristic and Reinforcement Learning" as submitted to IEEE TMM. 
 
 
 # Challenge-Example

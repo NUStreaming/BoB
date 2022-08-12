@@ -56,3 +56,10 @@ docker exec alphartc_pyinfer peerconnection_serverless sender_pyinfer.json
 ```
 
 If the `outvideo.yuv` and `outaudio.wav` are generated at the current folder, it means your bandwidth estimator has connected to AlphaRTC successfully.
+
+# The experiments that we run in the paper
+
+- First build the environment in environmant folder by `make all`
+- run ./run_with_tc in the parent folder.
+
+After the test runs finish it will create a results\_{$date} folder where $date will be the time the experiment is run.

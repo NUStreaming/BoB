@@ -49,7 +49,6 @@ cp BandwidthEstimator_bob.py BandwidthEstimator.py
 runTestsOnModel "bob_2022_02_23.pth"  $modelResultDir
 mv ${EVAL_LOGFILE} $modelResultDir/
 
-'''
 modelResultDir=${RESULTDIR}_gemini
 rm -rf $modelResultDir
 mkdir -p $modelResultDir
@@ -70,4 +69,3 @@ mkdir -p $modelResultDir
 cp BandwidthEstimator_bob_heuristic.py BandwidthEstimator.py
 runTestsOnModel "bob_heuristic"  $modelResultDir
 mv ${EVAL_LOGFILE} $modelResultDir/
-'''

@@ -1,0 +1,43 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+  branches:
+    include:
+    - "*"
+    exclude:
+    - upstream/*
+
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+
+- checkout: self
+
+- script: |
+    sudo apt install -y python3 python3-pip
+    python3 -m pip install torch pytest
+  displayName: "Install runtime dependencies"
+
+- script: |
+    python3 -m pytest tests
+  displayName: "Run test"
+
+- script: docker pull opennetlab.azurecr.io/challenge-env
+  displayName: 'Get challenge environment'
+
+- script: |
+    wget https://raw.githubusercontent.com/OpenNetLab/AlphaRTC/main/examples/peerconnection/serverless/corpus/receiver_pyinfer.json -O receiver_pyinfer.json
+    wget https://raw.githubusercontent.com/OpenNetLab/AlphaRTC/main/examples/peerconnection/serverless/corpus/sender_pyinfer.json -O sender_pyinfer.json
+    mkdir testmedia
+    wget https://github.com/OpenNetLab/AlphaRTC/raw/main/examples/peerconnection/serverless/corpus/testmedia/test.wav -O testmedia/test.wav
+    wget https://raw.githubusercontent.com/OpenNetLab/AlphaRTC/main/examples/peerconnection/serverless/corpus/testmedia/test.yuv -O testmedia/test.yuv
+  displayName: 'Fetch corpus'
+
+- script: docker run -d --rm -v `pwd`:/app -w /app --name alphartc_pyinfer opennetlab.azurecr.io/challenge-env peerconnection_serverless receiver_pyinfer.json
+          && docker exec alphartc_pyinfer peerconnection_serverless sender_pyinfer.json
+  displayName: 'Run this example'

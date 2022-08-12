@@ -62,4 +62,4 @@ If the `outvideo.yuv` and `outaudio.wav` are generated at the current folder, it
 - First build the environment in environment folder by `make all`
 - run ./run_with_tc in the parent folder.
 
-After the test runs are finished, it will create a results\_{$date}_{model} folder where $date will be the time the experiment is run. and for bob model will be bob, for heuristic it will be heuristic. In each separate result folder all logs of each run will be stored. The script initially makes 5 runs for each model. The content should be places in `testmedia` folder, currently there is a dummy content inside this folder (test.yuv and test.wav).
+After the test runs are finished, it will create a results\_{$date}_{$model} folder where $date will be the time the experiment is run. and for bob, $model will be bob, for heuristic, it will be heuristic. In each separate result folder all logs of each run will be stored. The script initially makes 5 runs for each model. The test content also needs to be placed in `testmedia` folder, currently there is a dummy content inside this folder (test.yuv and test.wav).

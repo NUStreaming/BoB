@@ -18,6 +18,8 @@ RUN unzip -o ubuntu-18.04-vmaf.zip && chmod 774 vmaf && mv vmaf /usr/bin && rm u
 
 COPY metrics metrics
 
+#upgrade pip3
+RUN pip3 install --upgrade pip
 # OpenAI
 RUN pip3 install gym
 # PyTorch
